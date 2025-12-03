@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMMER Deem - تواصل معنا</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="http://googleusercontent.com/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ==================================== */
+        /* الـ CSS الأساسي (مطابق للصفحات السابقة) */
+        /* ==================================== */
+        
+        :root {
+            --primary-color: #92272E; 
+            --background-color: #FBF8F4; 
+            --text-color: #333; 
+            --header-bg: var(--primary-color); 
+            --light-cream: #FFFDFB; 
+            --font-stack-general: 'Tajawal', sans-serif;
+            --font-stack-header: 'Amiri', serif; 
+            /* ألوان مخصصة لمنصات التواصل (للتطبيق على الأيقونة فقط) */
+            --instagram-color: #E4405F;
+            --whatsapp-color: #25D366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack-general);
+            background-color: var(--background-color); 
+            color: var(--text-color);
+            line-height: 1.8;
+            direction: rtl;
+            text-align: right;
+            scroll-behavior: smooth;
+        }
+        
+        /* تطبيق خط Amiri الفخم */
+        .logo h1, 
+        .main-content h2,
+        .social-button {
+            font-family: var(--font-stack-header);
+            font-weight: 700;
+        }
+        
+        /* تنسيق الهيدر (كما هو) */
+        .header {
+            position: sticky; top: 0; background-color: var(--header-bg); padding: 15px 5%; color: white; display: flex;
+            justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); z-index: 1000;
+        }
+        .logo h1 { font-size: 2.5em; margin: 0; letter-spacing: 1px; font-weight: 700; }
+        .logo span { font-family: var(--font-stack-general); font-size: 0.6em; display: block; line-height: 1; font-weight: 300; }
+        .nav-menu ul { list-style: none; display: flex; }
+        .nav-menu ul li { margin-right: 30px; }
+        .nav-menu ul li a { text-decoration: none; color: white; font-weight: 400; padding: 8px 15px; position: relative; transition: color 0.3s; }
+        .nav-menu ul li a::after { content: ''; position: absolute; bottom: -5px; right: 0; width: 0%; height: 2px; background-color: white; transition: width 0.3s ease-out; }
+        .nav-menu ul li a:hover::after { width: 100%; left: 0; }
+        
+        /* تنسيق المحتوى الرئيسي (كما هو) */
+        .main-content {
+            padding: 80px 5%; max-width: 700px; margin: 0 auto; text-align: center;
+        }
+
+        .main-content h2 {
+            font-size: 2.8em; color: var(--primary-color); margin-bottom: 50px; font-weight: 700; border-bottom: 3px solid var(--primary-color);
+            display: inline-block; padding-bottom: 10px; letter-spacing: 0.5px;
+        }
+        
+        /* ==================================== */
+        /* الـ CSS الخاص بأزرار التواصل (المحدّث والنهائي) */
+        /* ==================================== */
+        
+        .social-buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 30px;
+            background-color: var(--light-cream);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white; 
+            background-color: var(--primary-color); 
+            font-size: 1.5em;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--primary-color);
+        }
+
+        .social-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background-color: #A63038; 
+        }
+
+        .social-button .icon {
+            font-size: 1.5em;
+            margin-left: 15px;
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); 
+        }
+
+        /* تنسيق لون الأيقونة فقط */
+        .social-button.instagram-btn .icon {
+            color: var(--instagram-color);
+            background: -webkit-linear-gradient(45deg, #fdf497, #fd5949, #d6249f, #285AEB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8em; 
+        }
+        
+        .social-button.whatsapp-btn .icon {
+            color: var(--whatsapp-color);
+        }
+        
+        .social-button.contact-phone-btn .icon {
+            color: var(--light-cream); 
+        }
+        
+        /* ==================================== */
+        /* الفوتر (مطابق لـ index.html)          */
+        /* ==================================== */
+        
+        .footer {
+            text-align: center; padding: 25px; background-color: var(--primary-color); color: white; margin-top: 80px; font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <h1>SUMMER<span>Deem</span></h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html">الخدمات</a></li>
+                <li><a href="time.html">أوقات العمل</a></li>
+                <li><a href="location.html">الموقع</a></li>
+                <li><a href="who.html">من نحن</a></li>
+                <li><a href="social.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h2>📞 تواصلوا معنا عبر حساباتنا</h2>
+
+        <p style="margin-bottom: 40px; font-size: 1.1em; color: #666;">
+            نحن على بعد نقرة واحدة! تابعوا آخر عروضنا وتصاميمنا عبر منصاتنا.
+        </p>
+
+        <div class="social-buttons-container">
+            
+            <a href="https://www.instagram.com/dymlsyf9/" target="_blank" class="social-button instagram-btn">
+                <i class="fab fa-instagram icon"></i>
+                Instagram (انستجرام)
+            </a>
+
+            <a href="https://api.whatsapp.com/send/?phone=966545072217&text&type=phone_number&app_absent=0&utm_source=ig" target="_blank" class="social-button whatsapp-btn">
+                <i class="fab fa-whatsapp icon"></i>
+                WhatsApp (للحجز والاستفسار)
+            </a>
+            
+            <a href="tel:966545072217" class="social-button contact-phone-btn">
+                <i class="fas fa-phone icon"></i>
+                الاتصال المباشر بالصالون
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 SUMMER Deem. صُنع بأناقة.
+    </footer>
+    
+</body>
+</html>

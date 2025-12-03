@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMMER Deem - أوقات العمل</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================================== */
+        /* الـ CSS الأساسي (مطابق للصفحات السابقة) */
+        /* ==================================== */
+        
+        :root {
+            --primary-color: #92272E; 
+            --background-color: #FBF8F4; 
+            --text-color: #333; 
+            --header-bg: var(--primary-color); 
+            --light-cream: #FFFDFB; 
+            --font-stack-general: 'Tajawal', sans-serif;
+            --font-stack-header: 'Amiri', serif; 
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack-general);
+            background-color: var(--background-color); 
+            color: var(--text-color);
+            line-height: 1.8;
+            direction: rtl;
+            text-align: right;
+            scroll-behavior: smooth;
+        }
+        
+        /* تطبيق خط Amiri الفخم */
+        .logo h1, 
+        .main-content h2 {
+            font-family: var(--font-stack-header);
+            font-weight: 700;
+        }
+        
+        /* تنسيق الهيدر */
+        .header {
+            position: sticky; top: 0; background-color: var(--header-bg); padding: 15px 5%; color: white; display: flex;
+            justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); z-index: 1000;
+        }
+        .logo h1 { font-size: 2.5em; margin: 0; letter-spacing: 1px; font-weight: 700; }
+        .logo span { font-family: var(--font-stack-general); font-size: 0.6em; display: block; line-height: 1; font-weight: 300; }
+        .nav-menu ul { list-style: none; display: flex; }
+        .nav-menu ul li { margin-right: 30px; }
+        .nav-menu ul li a { text-decoration: none; color: white; font-weight: 400; padding: 8px 15px; position: relative; transition: color 0.3s; }
+        .nav-menu ul li a::after { content: ''; position: absolute; bottom: -5px; right: 0; width: 0%; height: 2px; background-color: white; transition: width 0.3s ease-out; }
+        .nav-menu ul li a:hover::after { width: 100%; left: 0; }
+        
+        /* تنسيق المحتوى الرئيسي */
+        .main-content {
+            padding: 80px 5%;
+            max-width: 900px; 
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .main-content h2 {
+            font-size: 2.8em; 
+            color: var(--primary-color); 
+            margin-bottom: 50px;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* ==================================== */
+        /* الـ CSS الخاص بجدول الأوقات (احترافي) */
+        /* ==================================== */
+        
+        .time-box {
+            background-color: var(--light-cream);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 650px;
+            margin: 0 auto;
+            border: 1px solid var(--primary-color);
+        }
+
+        .time-box p {
+            font-family: var(--font-stack-header);
+            font-size: 1.8em;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .time-box .hours {
+            font-family: var(--font-stack-header);
+            font-size: 3.5em; /* حجم كبير للوقت */
+            color: var(--primary-color);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 40px;
+            border-bottom: 2px dashed #DDD;
+            padding-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .time-box .closed-day {
+            font-size: 2.5em; /* حجم كبير للإجازة */
+            color: red;
+            font-weight: 900;
+            margin-top: 30px;
+            padding: 15px;
+            border: 3px solid red;
+            display: inline-block;
+            border-radius: 8px;
+        }
+        
+        /* ==================================== */
+        /* الفوتر (مطابق لـ index.html)          */
+        /* ==================================== */
+        
+        .footer {
+            text-align: center; padding: 25px; background-color: var(--primary-color); color: white; margin-top: 80px; font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <h1>SUMMER<span>Deem</span></h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html">الخدمات</a></li>
+                <li><a href="time.html">أوقات العمل</a></li>
+                <li><a href="location.html">الموقع</a></li>
+                <li><a href="who.html">من نحن</a></li>
+                <li><a href="social.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h2 style="margin-bottom: 80px;">⏰ مواعيد العمل والدوام</h2>
+
+        <div class="time-box">
+            <p>نحن في خدمتكم طوال أيام الأسبوع باستثناء الإجازة الأسبوعية:</p>
+            
+            <span class="hours">
+                نفتح من 12:30 ظهرًا <br> حتى 8:00 مساءً
+            </span>
+            
+            <span class="closed-day">
+                ❌ الأحد إجازة
+            </span>
+            
+            <p style="font-size: 1.1em; color: #666; margin-top: 40px;">
+                نتطلع لاستقبالكم يوميًا من الإثنين إلى السبت.
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 SUMMER Deem. صُنع بأناقة.
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMMER Deem - الخدمات والأسعار</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================================== */
+        /* الـ CSS الأساسي (مطابق لـ index.html) */
+        /* ==================================== */
+        
+        :root {
+            --primary-color: #92272E; 
+            --background-color: #FBF8F4; 
+            --text-color: #333; 
+            --header-bg: var(--primary-color); 
+            --light-cream: #FFFDFB; 
+            --font-stack-general: 'Tajawal', sans-serif;
+            --font-stack-header: 'Amiri', serif; 
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack-general);
+            background-color: var(--background-color); 
+            color: var(--text-color);
+            line-height: 1.8;
+            direction: rtl;
+            text-align: right;
+            scroll-behavior: smooth;
+        }
+        
+        /* تطبيق خط Amiri الفخم */
+        .logo h1, 
+        .main-content h2,
+        .index-button {
+            font-family: var(--font-stack-header);
+            font-weight: 700;
+        }
+        
+        /* تنسيق الهيدر */
+        .header {
+            position: sticky; top: 0; background-color: var(--header-bg); padding: 15px 5%; color: white; display: flex;
+            justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); z-index: 1000;
+        }
+        .logo h1 { font-size: 2.5em; margin: 0; letter-spacing: 1px; font-weight: 700; }
+        .logo span { font-family: var(--font-stack-general); font-size: 0.6em; display: block; line-height: 1; font-weight: 300; }
+        .nav-menu ul { list-style: none; display: flex; }
+        .nav-menu ul li { margin-right: 30px; }
+        .nav-menu ul li a { text-decoration: none; color: white; font-weight: 400; padding: 8px 15px; position: relative; transition: color 0.3s; }
+        .nav-menu ul li a::after { content: ''; position: absolute; bottom: -5px; right: 0; width: 0%; height: 2px; background-color: white; transition: width 0.3s ease-out; }
+        .nav-menu ul li a:hover::after { width: 100%; left: 0; }
+        
+        /* تنسيق المحتوى الرئيسي */
+        .main-content {
+            padding: 80px 5%;
+            max-width: 1200px; 
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .main-content h2 {
+            font-size: 2.8em; 
+            color: var(--primary-color); 
+            margin-bottom: 50px;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* ==================================== */
+        /* الـ CSS الخاص بالجداول (احترافي ومفصل) */
+        /* ==================================== */
+        
+        .service-section {
+            margin-bottom: 70px;
+            padding: 30px;
+            background-color: var(--light-cream); 
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: right;
+        }
+
+        .service-section h3 {
+            font-family: var(--font-stack-header);
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            display: block;
+            text-align: center;
+        }
+
+        .service-table {
+            width: 100%;
+            border-collapse: separate; 
+            border-spacing: 0 5px; 
+            margin-top: 25px;
+            text-align: right;
+        }
+
+        .service-table th, .service-table td {
+            padding: 15px 20px;
+            border: none;
+            font-weight: 400;
+        }
+        
+        .service-table th {
+             font-size: 1.1em;
+        }
+
+        .service-table thead tr {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 700;
+        }
+        
+        .service-table tbody tr {
+            background-color: white;
+            transition: all 0.3s;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); 
+        }
+
+        .service-table tbody tr:hover {
+            background-color: #FEEEEE; 
+            transform: scale(1.005);
+        }
+        
+        /* تنسيق الأقسام الفرعية داخل الجدول */
+        .service-table td[colspan="3"] {
+            font-family: var(--font-stack-general);
+            background-color: #EEE;
+            color: var(--primary-color);
+            padding: 10px;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+
+        /* تنسيق خاص لعمود السعر لتمييزه */
+        .service-table .price {
+            font-family: var(--font-stack-header);
+            font-weight: 700;
+            color: var(--primary-color);
+            width: 15%;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        
+        /* ==================================== */
+        /* الفوتر (مطابق لـ index.html)          */
+        /* ==================================== */
+        
+        .footer {
+            text-align: center; padding: 25px; background-color: var(--primary-color); color: white; margin-top: 80px; font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <h1>SUMMER<span>Deem</span></h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html">الخدمات</a></li>
+                <li><a href="time.html">أوقات العمل</a></li>
+                <li><a href="location.html">الموقع</a></li>
+                <li><a href="who.html">من نحن</a></li>
+                <li><a href="social.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h2>قائمة خدماتنا وأسعارنا ✨</h2>
+
+        <section id="hair" class="service-section">
+            <h3>HAIR SERVICES BAR | خدمات الشعر والقص</h3>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">الخدمة (Service)</th>
+                        <th style="width: 35%;">التفاصيل</th>
+                        <th class="price" style="width: 15%;">السعر (SAR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>استشوار (Hair Blow)</td><td>يبدأ حسب طول وكثافة الشعر</td><td class="price">79 - 119 ﷼</td></tr>
+                    <tr><td>علاج بارد للشعر (Trendy Hair)</td><td>ترطيب وإصلاح فوري</td><td class="price">350 ﷼</td></tr>
+                    <tr><td>علاج البروتين/الكولاجين</td><td>يبدأ حسب طول ونوع الشعر</td><td class="price">590 ﷼</td></tr>
+                    <tr><td>صبغة (Full Color)</td><td>للشعر المتوسط الطول</td><td class="price">250 ﷼</td></tr>
+                    <tr><td>صبغة أطراف (Ombre / Highlights)</td><td>يبدأ حسب الطول والكثافة</td><td class="price">390 - 790 ﷼</td></tr>
+                    
+                    <tr style="background-color: #F8F8F8;"><td colspan="3" style="text-align: center; font-weight: 700;">✂️ القص (CUT)</td></tr>
+                    <tr><td>قص أطراف (Hair Trim)</td><td>تنظيف وتقليم الأطراف</td><td class="price">90 ﷼</td></tr>
+                    <tr><td>قص الغرة (Bangs Cut)</td><td>تعديل أو قص الغرة</td><td class="price">50 ﷼</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="nails" class="service-section">
+            <h3>NAIL SPA SERVICES | خدمات سبا الأظافر</h3>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">الخدمة</th>
+                        <th style="width: 45%;">التفاصيل</th>
+                        <th class="price" style="width: 15%;">السعر (SAR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #F0F8FF;"><td colspan="3" style="text-align: center; font-weight: 700;">خدمات سريعة (GOOD TO GO)</td></tr>
+                    <tr><td>إزالة طلاء عادي</td><td></td><td class="price">20 ﷼</td></tr>
+                    <tr><td>تنظيف الأظافر</td><td></td><td class="price">50 ﷼</td></tr>
+                    
+                    <tr style="background-color: #F0F8FF;"><td colspan="3" style="text-align: center; font-weight: 700;">العناية الكلاسيكية (CLASSIC CARE)</td></tr>
+                    <tr><td>مانيكير كلاسيك</td><td>تنظيف مع طلاء عادي</td><td class="price">75 ﷼</td></tr>
+                    <tr><td>بديكير كلاسيك</td><td>تنظيف القدمين مع طلاء عادي</td><td class="price">85 ﷼</td></tr>
+                    <tr><td>بديكير ومانيكير كلاسيك</td><td>تنظيف شامل مع طلاء عادي</td><td class="price">150 ﷼</td></tr>
+                    
+                    <tr style="background-color: #F0F8FF;"><td colspan="3" style="text-align: center; font-weight: 700;">الجل والعلاجات (GEL & TREATMENTS)</td></tr>
+                    <tr><td>طلاء جل (Gel Polish)</td><td></td><td class="price">95 ﷼</td></tr>
+                    <tr><td>جل معزز (Gel Builder)</td><td></td><td class="price">180 ﷼</td></tr>
+                    <tr><td>إزالة طلاء جل (Gel Removal)</td><td></td><td class="price">35 ﷼</td></tr>
+                    <tr><td>إزالة أكريليك (Acrylic Removal)</td><td></td><td class="price">50 ﷼</td></tr>
+
+                    <tr style="background-color: #F0F8FF;"><td colspan="3" style="text-align: center; font-weight: 700;">عروض خاصة (SPECIAL)</td></tr>
+                    <tr><td>بناء الأظافر (Acrylic/Polygel)</td><td></td><td class="price">250 ﷼</td></tr>
+                    <tr><td>تعبئة الأظافر (Refill)</td><td></td><td class="price">150 ﷼</td></tr>
+
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="hand-foot-lashes" class="service-section">
+            <h3>HAND, FOOT & LASHES | اليدين، القدمين والرموش</h3>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">الخدمة</th>
+                        <th style="width: 45%;">التفاصيل</th>
+                        <th class="price" style="width: 15%;">السعر (SAR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #FFF3E0;"><td colspan="3" style="text-align: center; font-weight: 700;">🧤 عناية اليدين والقدمين (HAND & FOOT CARE)</td></tr>
+                    <tr><td>سكراب اليدين</td><td>تنظيف وتقشير اليدين</td><td class="price">40 ﷼</td></tr>
+                    <tr><td>سكراب القدمين</td><td>تنظيف وتقشير القدمين</td><td class="price">50 ﷼</td></tr>
+                    <tr><td>عناية بالقدمين (Foot Treatment)</td><td>إزالة الجلد الميت وعلاج التشققات</td><td class="price">150 ﷼</td></tr>
+                    
+                    <tr style="background-color: #FFF3E0;"><td colspan="3" style="text-align: center; font-weight: 700;">👁️ الرموش (LASHES)</td></tr>
+                    <tr><td>تركيب رموش (Extensions)</td><td>حسب النوع (Classic, Volume, Hybrid)</td><td class="price">300 - 450 ﷼</td></tr>
+                    <tr><td>رفع الرموش (Lash Lift)</td><td></td><td class="price">250 ﷼</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 SUMMER Deem. صُنع بأناقة.
+    </footer>
+    
+</body>
+</html>

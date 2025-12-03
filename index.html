@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMMER Deem - الصفحة الرئيسية</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================================== */
+        /* الإعدادات الأساسية (عودة للخلفية الفاتحة) */
+        /* ==================================== */
+        
+        :root {
+            /* الألوان الرئيسية: عكس الألوان مجدداً */
+            --primary-color: #92272E; /* العنابي الداكن (للخطوط والأزرار) */
+            --background-color: #FBF8F4; /* البيج الفاتح/الأوف وايت (خلفية الموقع) */
+            --text-color: #333; /* لون النص الأساسي */
+            --header-bg: var(--primary-color); /* خلفية الهيدر عنابية داكنة */
+            --light-cream: #FFFDFB; /* لون ثانوي للأزرار */
+
+            /* الخطوط كما هي */
+            --font-stack-general: 'Tajawal', sans-serif;
+            --font-stack-header: 'Amiri', serif; 
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack-general);
+            background-color: var(--background-color); /* تطبيق لون خلفية اللوقو */
+            color: var(--text-color);
+            line-height: 1.8;
+            direction: rtl;
+            text-align: right;
+            scroll-behavior: smooth;
+        }
+        
+        /* تطبيق خط Amiri الفخم على الأجزاء الرئيسية */
+        .logo h1, 
+        .main-content h2, 
+        .index-button {
+            font-family: var(--font-stack-header);
+            font-weight: 700;
+        }
+        
+        /* ==================================== */
+        /* الهيدر وشريط التنقل        */
+        /* ==================================== */
+
+        .header {
+            position: sticky; 
+            top: 0;
+            background-color: var(--header-bg);
+            padding: 15px 5%;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        /* إعادة تنسيق الشعار كنص */
+        .logo h1 {
+            font-size: 2.5em; 
+            margin: 0;
+            letter-spacing: 1px;
+            font-weight: 700; 
+        }
+        
+        .logo span {
+            font-family: var(--font-stack-general); 
+            font-size: 0.6em;
+            display: block;
+            line-height: 1;
+            font-weight: 300; 
+        }
+        
+        /* إزالة تنسيق الصورة (لأننا أزلنا وسم الصورة) */
+        .logo-img { display: none; } 
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-menu ul li {
+            margin-right: 30px;
+        }
+        
+        /* ... تنسيق الروابط في الهيدر يبقى كما هو (أبيض) ... */
+        .nav-menu ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 400;
+            padding: 8px 15px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-menu ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0%;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-menu ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        /* ==================================== */
+        /* المحتوى الرئيسي            */
+        /* ==================================== */
+        
+        .main-content {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .main-content h2 {
+            font-size: 2.8em; 
+            color: var(--primary-color); /* العنوان عنابي داكن */
+            margin-bottom: 50px;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* تنسيق أزرار الاندكس (عودة للتصميم الأصلي الأنيق) */
+        .index-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .index-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 160px; 
+            padding: 20px;
+            background-color: white; /* خلفية الزر بيضاء نقية */
+            border: 1px solid rgba(146, 39, 46, 0.5);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--primary-color); 
+            font-size: 1.7em; 
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* ظل خفيف جداً */
+        }
+
+        .index-button:hover {
+            background-color: var(--primary-color);
+            color: var(--light-cream); /* يصبح النص فاتحاً عند التمرير */
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        /* تنسيق النص الأخير في الصفحة */
+        .main-content p {
+            color: #666; /* لون رمادي مناسب للخلفية الفاتحة */
+            opacity: 1;
+        }
+
+        /* ==================================== */
+        /* الفوتر                 */
+        /* ==================================== */
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 80px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <h1>SUMMER<span>Deem</span></h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html">الخدمات</a></li>
+                <li><a href="time.html">أوقات العمل</a></li>
+                <li><a href="location.html">الموقع</a></li>
+                <li><a href="who.html">من نحن</a></li>
+                <li><a href="social.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h2>مرحبًا بكِ في عالم SUMMER Deem للجمال</h2>
+        
+        <div class="index-buttons">
+            <a href="services.html" class="index-button">
+                <span style="font-size: 1.2em; margin-left: 10px;">✨</span> الخدمات والأسعار
+            </a>
+            <a href="time.html" class="index-button">
+                <span style="font-size: 1.2em; margin-left: 10px;">⏰</span> أوقات العمل
+            </a>
+            <a href="location.html" class="index-button">
+                <span style="font-size: 1.2em; margin-left: 10px;">📍</span> موقعنا
+            </a>
+            <a href="who.html" class="index-button">
+                <span style="font-size: 1.2em; margin-left: 10px;">⭐</span> من نحن
+            </a>
+            <a href="social.html" class="index-button">
+                <span style="font-size: 1.2em; margin-left: 10px;">📱</span> تواصل اجتماعي
+            </a>
+        </div>
+        
+        <p style="margin-top: 50px; font-size: 1.1em; font-weight: 300;">
+            وجهتك الأولى للرفاهية والأناقة المتكاملة.
+        </p>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 SUMMER Deem. صُنع بأناقة.
+    </footer>
+    
+</body>
+</html>

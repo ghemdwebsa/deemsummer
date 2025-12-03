@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMMER Deem - الموقع الجغرافي</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================================== */
+        /* الـ CSS الأساسي (مطابق للصفحات السابقة) */
+        /* ==================================== */
+        
+        :root {
+            --primary-color: #92272E; 
+            --background-color: #FBF8F4; 
+            --text-color: #333; 
+            --header-bg: var(--primary-color); 
+            --light-cream: #FFFDFB; 
+            --font-stack-general: 'Tajawal', sans-serif;
+            --font-stack-header: 'Amiri', serif; 
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack-general);
+            background-color: var(--background-color); 
+            color: var(--text-color);
+            line-height: 1.8;
+            direction: rtl;
+            text-align: right;
+            scroll-behavior: smooth;
+        }
+        
+        /* تطبيق خط Amiri الفخم */
+        .logo h1, 
+        .main-content h2,
+        .location-info h3 {
+            font-family: var(--font-stack-header);
+            font-weight: 700;
+        }
+        
+        /* تنسيق الهيدر */
+        .header {
+            position: sticky; top: 0; background-color: var(--header-bg); padding: 15px 5%; color: white; display: flex;
+            justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); z-index: 1000;
+        }
+        .logo h1 { font-size: 2.5em; margin: 0; letter-spacing: 1px; font-weight: 700; }
+        .logo span { font-family: var(--font-stack-general); font-size: 0.6em; display: block; line-height: 1; font-weight: 300; }
+        .nav-menu ul { list-style: none; display: flex; }
+        .nav-menu ul li { margin-right: 30px; }
+        .nav-menu ul li a { text-decoration: none; color: white; font-weight: 400; padding: 8px 15px; position: relative; transition: color 0.3s; }
+        .nav-menu ul li a::after { content: ''; position: absolute; bottom: -5px; right: 0; width: 0%; height: 2px; background-color: white; transition: width 0.3s ease-out; }
+        .nav-menu ul li a:hover::after { width: 100%; left: 0; }
+        
+        /* تنسيق المحتوى الرئيسي */
+        .main-content {
+            padding: 80px 5%;
+            max-width: 1100px; 
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .main-content h2 {
+            font-size: 2.8em; 
+            color: var(--primary-color); 
+            margin-bottom: 50px;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* ==================================== */
+        /* الـ CSS الخاص بالموقع (احترافي) */
+        /* ==================================== */
+
+        .location-container {
+            display: flex;
+            gap: 40px;
+            text-align: right;
+            margin-top: 40px;
+            flex-direction: row-reverse; /* لعرض المعلومات على اليمين والخريطة على اليسار */
+        }
+        
+        .location-info {
+            flex: 1;
+            padding: 30px;
+            background-color: var(--light-cream);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .location-info h3 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+
+        .location-info p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .location-info a.map-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            margin-top: 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: var(--font-stack-general);
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .location-info a.map-button:hover {
+            background-color: #7A1F25; /* لون أغمق عند التمرير */
+            transform: translateY(-2px);
+        }
+
+        /* حاوية الخريطة (قابلة للتضمين - Embed) */
+        .map-embed {
+            flex: 2; /* تأخذ مساحة أكبر */
+            min-height: 450px;
+            background-color: #E0E0E0; /* لون رمادي للخلفية قبل التضمين */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .map-placeholder-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            font-size: 1.5em;
+            font-family: var(--font-stack-header);
+            text-align: center;
+            width: 80%;
+        }
+
+        /* ==================================== */
+        /* الفوتر (مطابق لـ index.html)          */
+        /* ==================================== */
+        
+        .footer {
+            text-align: center; padding: 25px; background-color: var(--primary-color); color: white; margin-top: 80px; font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <h1>SUMMER<span>Deem</span></h1>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html">الخدمات</a></li>
+                <li><a href="time.html">أوقات العمل</a></li>
+                <li><a href="location.html">الموقع</a></li>
+                <li><a href="who.html">من نحن</a></li>
+                <li><a href="social.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h2>📍 كيف تصلون إلينا؟</h2>
+
+        <div class="location-container">
+            
+            <div class="location-info">
+                <h3>عنواننا بالتفصيل</h3>
+                
+                <p>
+                    <span style="font-weight: 700; color: var(--primary-color);">العنوان:</span> <br>
+                   حي الحمراء
+                </p>
+                
+                <p>
+                    <span style="font-weight: 700; color: var(--primary-color);">المعالم المجاورة:</span> <br>
+                 شارع الكورنيش الفرعي بجانب مطعم هرفي
+                </p>
+                
+                <p>
+                    <span style="font-weight: 700; color: var(--primary-color);">رقم الهاتف:</span> <br>
+                +966 54 507 2217
+                </p>
+                
+                <a href="https://maps.app.goo.gl/YourLocationLinkHere" target="_blank" class="map-button">
+                    الذهاب للموقع مباشرةً في Google Maps
+                </a>
+                
+            </div>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 SUMMER Deem. صُنع بأناقة.
+    </footer>
+    
+</body>
+</html>
